@@ -8,7 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("student")
@@ -68,9 +70,9 @@ public class StudentController {
 
     }
 
-    @GetMapping("/faculty-of-student")
-    public Student findFaculty(Faculty faculty) {
-        return studentService.findFaculty(faculty);
+    @GetMapping("{student-id}")
+    public ResponseEntity<Faculty> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(studentService.findFacultyByStudent(id));
     }
 
 

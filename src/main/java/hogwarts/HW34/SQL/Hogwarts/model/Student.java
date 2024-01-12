@@ -3,6 +3,7 @@ package hogwarts.HW34.SQL.Hogwarts.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 
@@ -22,7 +23,10 @@ public class Student {
     private  String name;
     @Column
     private int age;
+
+
     @ManyToOne
     @JoinColumn(name = "faculty_id")
+    @Getter
     private Faculty faculty;
 }

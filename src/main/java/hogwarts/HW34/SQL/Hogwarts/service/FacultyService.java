@@ -54,8 +54,8 @@ public class FacultyService {
         return facultyRepository.findAll();
     }
 
-    public List <Student> findAllByFaculty (Student name, Student id){
-        return facultyRepository.findAllByFaculty(name, id);
+    public Collection<Student> findStudentByFaculty(long id) {
+        return facultyRepository.getReferenceById(id).getStudents();
     }
 
 }

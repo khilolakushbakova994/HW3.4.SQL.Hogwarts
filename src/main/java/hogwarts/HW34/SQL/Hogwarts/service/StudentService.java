@@ -3,11 +3,10 @@ package hogwarts.HW34.SQL.Hogwarts.service;
 import hogwarts.HW34.SQL.Hogwarts.model.Faculty;
 import hogwarts.HW34.SQL.Hogwarts.model.Student;
 import hogwarts.HW34.SQL.Hogwarts.repository.StudentRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
 import java.util.Collection;
-import java.util.List;
+
+
 
 @Service
 public class StudentService {
@@ -47,8 +46,9 @@ public class StudentService {
     public Collection<Student> findByAgeBetween(int min, int max){
         return studentRepository.findByAgeBetweenIgnoreCase(min, max);
     }
-
-    public Student findFaculty (Faculty faculty){
-        return studentRepository.findFaculty(faculty);
+    public Faculty findFacultyByStudent(long id){
+        return studentRepository.getReferenceById(id).getFaculty();
     }
+
+
 }
